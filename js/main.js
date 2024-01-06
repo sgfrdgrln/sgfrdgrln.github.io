@@ -113,7 +113,23 @@
                 items:3
             }
         }
+        
     });
+
+
+    document.addEventListener("click", function (e) {
+        if (e.target.classList.contains("food-item")) {
+            const src = e.target.getAttribute("src");
+            const altText = e.target.getAttribute("alt"); // Get the alt text of the clicked image
+    
+            document.querySelector(".modal-img").src = src;
+            document.querySelector("#foodName").textContent = altText; // Set the modal title
+    
+            const myModal = new bootstrap.Modal(document.getElementById('gallery-modal'));
+            myModal.show();
+        }
+    })
+    
     
 })(jQuery);
 
